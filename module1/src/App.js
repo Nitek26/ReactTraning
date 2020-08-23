@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ButtonFunction from './components/ButtonFunction';
+import ButtonClass from './components/ButtonClass';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           Learn React
         </a>
         <ButtonFunction />
+        <ButtonClass />
       </header>
 
     </div>
