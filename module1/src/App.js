@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import ButtonFunction from './components/ButtonFunction';
 import ButtonClass from './components/ButtonClass';
+import ButtonPureComponent from './components/ButtonPureComponent';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         </a>
         <ButtonFunction />
         <ButtonClass />
+        <ButtonPureComponent />
       </header>
 
     </div>
