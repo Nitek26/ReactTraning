@@ -3,13 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import ButtonCreateElement from './components/ButtonCreateElement';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <ButtonCreateElement />
-
   </React.StrictMode>,
   document.getElementById('root')
 );
