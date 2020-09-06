@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import HomePage from './components/HomePage/HomePage';
-import ErrorBoundary from './components/ErrorBoundary';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
 function App() {
   return (
