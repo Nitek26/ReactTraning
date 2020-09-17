@@ -4,8 +4,11 @@
     align-items: center;
     justify-content: center;
     padding: 40px;    
+    width: 90%;
+    margin: 0 auto;
+    background-color: #424242;
 }
 
-.homepage>div{
+.homepage{
     height: 100%;
 }
