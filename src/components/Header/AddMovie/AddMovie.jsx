@@ -3,7 +3,7 @@ import './AddMovie.css'
 
 class AddMovie extends React.Component {
     render() {
-        return <div className="add-movie-btn">AddMovie</div>
+        return <button className="add-movie-btn">+ ADD MOVIE</button>
     }
 }
 
