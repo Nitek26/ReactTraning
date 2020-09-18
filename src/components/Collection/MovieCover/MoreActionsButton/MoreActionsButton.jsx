@@ -3,7 +3,7 @@ import './MoreActionsButton.css'
 
 class MoreActionsButton extends React.Component {
     render() {
-        return <div>MoreActionsButton</div>
+        return <button className="more-btn"></button>
     }
 }
 

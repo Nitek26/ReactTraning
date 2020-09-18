@@ -1,0 +1,20 @@
+
+.more-btn {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    color: white;
+    background-color: #232323;
+    opacity: 0.8;
+    transform: rotate(-90deg);
+    font-weight: bold;
+    position: absolute;
+    right: 3px;
+    top:3px;
+}
+
+.more-btn::after {
+    content: "...";
+    position: relative;
+    top: -5px;
+}
