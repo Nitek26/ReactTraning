@@ -1,12 +1,13 @@
 import React from 'react'
 import './Footer.css'
+import Logo from '../Logo/Logo'
 
 class Footer extends React.Component {
 
     render() {
         return (
             <div className="footer">
-                <span>footer</span>
+                <Logo></Logo>
             </div>)
     }
 }
