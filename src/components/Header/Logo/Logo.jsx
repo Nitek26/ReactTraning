@@ -3,7 +3,7 @@ import './Logo.css'
 
 class Logo extends React.Component {
     render() {
-        return <div>Logo</div>
+        return <div className="logo">Logo</div>
     }
 }
 

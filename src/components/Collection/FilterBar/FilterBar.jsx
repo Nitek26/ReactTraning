@@ -3,7 +3,7 @@ import './FilterBar.css'
 
 class FilterBar extends React.Component {
     render() {
-        return <div>FilterBar</div>
+        return <div className="filter-bar">FilterBar</div>
     }
 }
 

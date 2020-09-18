@@ -3,7 +3,7 @@ import './MovieCover.css'
 
 class MovieCover extends React.Component {
     render() {
-        return <div>MovieCover</div>
+        return <div className="movie-cover">MovieCover</div>
     }
 }
 

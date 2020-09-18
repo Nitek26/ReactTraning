@@ -5,8 +5,8 @@ import MovieCoversList from './MovieCoversList/MovieCoversList'
 
 class Collection extends React.Component {
     render() {
-        return <div className="movie-collection">Movie Collection
-        <CollectionTopPane></CollectionTopPane>
+        return <div className="movie-collection">
+            <CollectionTopPane></CollectionTopPane>
             <MovieCoversList></MovieCoversList>
         </div>
     }

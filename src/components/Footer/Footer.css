@@ -2,4 +2,11 @@
     width: 100%;
     background-color: seagreen;
     height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer>span{
+    font-weight: bold;
 }

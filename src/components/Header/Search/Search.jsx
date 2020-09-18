@@ -3,7 +3,7 @@ import './Search.css'
 
 class Search extends React.Component {
     render() {
-        return <div>Search</div>
+        return <div className="search">Search</div>
     }
 }
 

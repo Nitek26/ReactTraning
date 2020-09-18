@@ -3,7 +3,7 @@ import './OrderBar.css'
 
 class OrderBar extends React.Component {
     render() {
-        return <div>OrderBar</div>
+        return <div className="order-bar">OrderBar</div>
     }
 }
 

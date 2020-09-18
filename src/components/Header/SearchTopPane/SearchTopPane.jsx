@@ -5,8 +5,8 @@ import AddMovie from '../AddMovie/AddMovie'
 
 class SearchTopPane extends React.Component {
     render() {
-        return <div className="SearchTopPane">SearchTopPane
-        <Logo></Logo>
+        return <div className="search-top-pane">
+            <Logo></Logo>
             <AddMovie></AddMovie>
         </div>
     }
