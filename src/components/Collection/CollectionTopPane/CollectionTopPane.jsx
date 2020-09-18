@@ -6,7 +6,7 @@ import OrderBar from '../OrderBar/OrderBar'
 
 class CollectionTopPane extends React.Component {
     render() {
-        return <div>
+        return <div className="collection-top-pane">
             <FilterBar></FilterBar>
             <OrderBar></OrderBar>
         </div>

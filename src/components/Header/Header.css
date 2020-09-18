@@ -1,5 +1,16 @@
 .header{
     height: 400px;
     width: 100%;
-    background-color: red;
+    background-image: url('../img/moviesCoversWallPaper.jpg');
+    backdrop-filter: blur(1000px);
+
 }
+
+.blur {
+    background: rgba(36, 34, 34, 0.2); 
+    backdrop-filter: blur(3px);   
+     backdrop-filter: brightness(25%);    
+
+    width: 100%;
+    height: 100%;
+  }

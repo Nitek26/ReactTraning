@@ -1,6 +1,5 @@
 .order-bar{
     float: right;
-    background: aquamarine;
     width: 40%;
     font-size:20px;
 }
@@ -13,12 +12,6 @@
     line-height: 40px;
     color: #555;
 }
-.select-bar-dropdown>select{
-        border: none;
-        background-color: transparent;
-        color: white;
-        font-size: 16px;
-}
 
 .select-bar-dropdown select {
     /* Hide default arrow */
@@ -28,8 +21,16 @@
     /* Style the dropdown box */
     padding: 0 5px;
     font-size: 20px;
+    border: none;
+      background-color: transparent;
+    color: white;
   }
-  
+  .select-bar-dropdown select option {
+    margin: 40px;
+    background: #232323;
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
   .select-bar-dropdown {
     position: relative;
     width:200px;    
