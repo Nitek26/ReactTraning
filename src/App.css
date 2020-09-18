@@ -11,6 +11,19 @@
     cursor: pointer;
   }
 
+  button:hover {
+    filter: brightness(75%);
+
+  }
+
+  select{
+    outline: none;
+  }
+
+select:hover{
+  filter: brightness(75%);
+  cursor: pointer;
+}
   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 padding: 0 10px;
   }

@@ -2,4 +2,54 @@
     float: right;
     background: aquamarine;
     width: 40%;
+    font-size:20px;
 }
+.bar{
+    margin-left: 5%;
+}
+
+.bar>span{
+    float: left;
+    line-height: 40px;
+    color: #555;
+}
+.select-bar-dropdown>select{
+        border: none;
+        background-color: transparent;
+        color: white;
+        font-size: 16px;
+}
+
+.select-bar-dropdown select {
+    /* Hide default arrow */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;  
+    /* Style the dropdown box */
+    padding: 0 5px;
+    font-size: 20px;
+  }
+  
+  .select-bar-dropdown {
+    position: relative;
+    width:200px;    
+    margin-left: 20px;
+    float: left;
+    font-size: 20px;
+  }
+  
+  .select-bar-dropdown select, .bar::after {
+    height: 40px;
+    width: 100%;
+  }
+   
+  .select-bar-dropdown::after {
+    content: "\25bc"; /* HTML symbol */
+    /* Reposition */
+    position: absolute;
+    top: 0;
+    right: 0px;
+    padding: 0 10px;
+    line-height: 40px; /* Vertical center text */
+    color: #F65261;
+  }

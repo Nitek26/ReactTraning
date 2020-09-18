@@ -3,3 +3,19 @@
     background: rgb(184, 66, 148);
     width: 60%;
 }
+
+.movie-counter{
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.filters>button{
+    margin-right: 5px;
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+}
+
+.filters{
+    line-height: 40px;
+}
