@@ -1,0 +1,21 @@
+.filter-bar{
+    float: left;
+    width: 60%;
+    font-size: 20px;
+}
+
+.movie-counter{
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.filters>button{
+    margin-right: 5px;
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+}
+
+.filters{
+    line-height: 40px;
+}

@@ -1,0 +1,33 @@
+.search{
+    margin: 0 auto;    
+    margin-top: 40px;
+    padding: 20px;
+    width: 90%;
+}
+
+.search-input{
+    background-color: #232323;
+    opacity: 0.8;
+    border: none;
+    border-radius: 5px;
+    width: 75%;
+    min-width: 200px;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    margin-right: 25px;
+}
+
+.search-btn{
+    background-color: #F65261;
+    border-radius: 5px;
+    width: 200px;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+}
+
+.find-movie-txt{
+    font-size: 30px;
+    margin-bottom: 30px;
+}
