@@ -7,21 +7,20 @@ class MovieCover extends React.Component {
     render() {
         return <div className="movie-cover">
             <MoreActionsButton></MoreActionsButton>
-            <img src="https://image.tmdb.org/t/p/w500/uxzzxijgPIY7slzFvMotPv8wjKA.jpg"></img>
+            <img src={this.props.movie.poster_path} alt={this.props.movie.title}></img>
             <div className="movie-details">
-                <div className="title">Black Panther</div>
-                <div className="year">2020</div>
-                <div className="genre">Adventure, Comedy, Action</div>
+                <div className="title">{this.props.movie.title}</div>
+                <div className="year">{this.props.movie.release_date}</div>
+                <div className="genre">{this.props.movie.genres.join(', ')}</div>
             </div>
-
         </div>
     }
 }
 
-MovieCover.PropTypes = {
+MovieCover.propTypes = {
     movie: PropTypes.shape({
         title: PropTypes.string.isRequired,
-        year: PropTypes.string.isRequired,
+        release_date: PropTypes.string.isRequired,
         poster_path: PropTypes.string.isRequired,
         genres: PropTypes.array.isRequired
     })

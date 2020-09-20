@@ -4,7 +4,7 @@ import './FilterBar.css'
 class FilterBar extends React.Component {
     render() {
         return <div className="filter-bar">
-            <div class="filters">
+            <div className="filters">
                 <button>ALL</button>
                 <button>DOCUMENTARY</button>
                 <button>COMEDY</button>

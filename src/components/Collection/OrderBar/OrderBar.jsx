@@ -5,7 +5,7 @@ class OrderBar extends React.Component {
     render() {
         return <div className="order-bar">
 
-            <div class="bar">
+            <div className="bar">
                 <span>SORT BY</span>
                 <div className="select-bar-dropdown">
                     <select>

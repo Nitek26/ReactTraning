@@ -5,7 +5,7 @@ import Search from './Search/Search'
 class Header extends React.Component {
     render() {
         return <div className="header">
-            <div class="blur">
+            <div className="blur">
                 <SearchTopPane></SearchTopPane>
                 <Search></Search>
             </div>
