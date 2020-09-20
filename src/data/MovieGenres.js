@@ -1,9 +1,10 @@
 const genres = {
-    ALL="all",
-    DOCUMENTARY="documentary",
-    COMEDY="comedy",
-    HORROR="horror",
-    CRIME="crime"
+    ALL: "All",
+    DOCUMENTARY: "Documentary",
+    COMEDY: "Comedy",
+    HORROR: "Horror",
+    CRIME: "Crime",
+    DRAMA: "Drama"
 }
 
 export default genres;
