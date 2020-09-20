@@ -8,7 +8,6 @@ class MovieCoversList extends React.Component {
         return <div className="movie-cover-list">
             {this.props.movies.map(movie => <MovieCover movie={movie} key={movie.id} />)}
         </div>
-
     }
 }
 

@@ -6,12 +6,13 @@ import movies from '../../data/MockedMovies.js'
 
 class Collection extends React.Component {
     state = {
-        movies: movies.data
+        movies: movies.data,
+        found: movies.data.length
     };
 
     render() {
         return <div className="movie-collection">
-            <CollectionTopPane></CollectionTopPane>
+            <CollectionTopPane found={this.state.found}></CollectionTopPane>
             <MovieCoversList movies={this.state.movies}></MovieCoversList>
         </div>
     }

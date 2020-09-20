@@ -16,7 +16,7 @@ class FilterBar extends React.Component {
                 <button value="horror" onClick={this.filterByGenre}>HORROR</button>
                 <button value="crime" onClick={this.filterByGenre}>CRIME</button>
             </div>
-            <div className="movie-counter">7 movies found</div>
+            <div className="movie-counter">{this.props.found} movies found</div>
         </div>
     }
 }
