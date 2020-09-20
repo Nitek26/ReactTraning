@@ -22,9 +22,15 @@ class Collection extends React.Component {
         this.setState({ movies: filteredMovies })
     }
 
+    orderBy = (e) => {
+        let orderByValue = e.target.value;
+        let orderedMovies = this.state.movies.sort((a, b) => (a[orderByValue] > b[orderByValue]) ? 1 : -1)
+        this.setState({ movies: orderedMovies });
+    }
+
     render() {
         return <div className="movie-collection">
-            <CollectionTopPane found={this.state.movies.length} filterByGenre={this.filterByGenre}></CollectionTopPane>
+            <CollectionTopPane found={this.state.movies.length} filterByGenre={this.filterByGenre} orderBy={this.orderBy}></CollectionTopPane>
             <MovieCoversList movies={this.state.movies}></MovieCoversList>
         </div>
     }

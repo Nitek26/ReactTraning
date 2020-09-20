@@ -3,17 +3,13 @@ import './OrderBar.css';
 import movieSortProps from '../../../data/MovieSortProps.js';
 
 class OrderBar extends React.Component {
-    orderBy = (e) => {
-        console.log("selected elem: " + e.target.value);
-    }
-
     render() {
         return <div className="order-bar">
 
             <div className="bar">
                 <span>SORT BY</span>
                 <div className="select-bar-dropdown">
-                    <select onChange={this.orderBy}>
+                    <select onChange={this.props.orderBy}>
                         <option value={movieSortProps.RELEASE_DATE}>RELEASE DATE</option>
                         <option value={movieSortProps.VOTE_AVRAGE}>VOTE AVRAGE</option>
                         <option value={movieSortProps.VOTE_COUNT}>VOTE COUNT</option>

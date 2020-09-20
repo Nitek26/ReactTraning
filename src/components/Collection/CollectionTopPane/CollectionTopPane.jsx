@@ -8,7 +8,7 @@ class CollectionTopPane extends React.Component {
     render() {
         return <div className="collection-top-pane">
             <FilterBar found={this.props.found} filterByGenre={this.props.filterByGenre}></FilterBar>
-            <OrderBar></OrderBar>
+            <OrderBar orderBy={this.props.orderBy}></OrderBar>
         </div>
     }
 }
