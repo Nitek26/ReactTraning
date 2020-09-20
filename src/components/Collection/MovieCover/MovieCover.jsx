@@ -1,6 +1,7 @@
 import React from 'react'
 import './MovieCover.css'
 import MoreActionsButton from './MoreActionsButton/MoreActionsButton'
+import PropTypes from 'prop-types'
 
 class MovieCover extends React.Component {
     render() {
@@ -16,5 +17,14 @@ class MovieCover extends React.Component {
         </div>
     }
 }
+
+MovieCover.PropTypes = {
+    movie: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        year: PropTypes.string.isRequired,
+        poster_path: PropTypes.string.isRequired,
+        genres: PropTypes.array.isRequired
+    })
+};
 
 export default MovieCover;
