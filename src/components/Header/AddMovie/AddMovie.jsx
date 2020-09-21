@@ -1,10 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { Button, Modal } from 'react-bootstrap';
 import './AddMovie.css'
 
-class AddMovie extends React.Component {
-    render() {
-        return <button className="add-movie-btn">+ ADD MOVIE</button>
-    }
+function AddMovie() {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    return (
+        <>
+            <Button className="danger add-movie-btn" onClick={handleShow}>
+                + ADD MOVIE
+                    </Button>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Modal heading</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>Close</Button>
+                    <Button variant="primary" onClick={handleClose}>Save Changes</Button>
+                </Modal.Footer>
+            </Modal>
+        </>
+    );
 }
 
 export default AddMovie;
