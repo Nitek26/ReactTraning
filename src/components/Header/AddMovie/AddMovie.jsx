@@ -12,7 +12,7 @@ function AddMovie() {
 
     return (
         <>
-            <Button className="danger add-movie-btn" onClick={handleShow}>
+            <Button className="pink-full-btn" onClick={handleShow}>
                 + ADD MOVIE
                     </Button>
 

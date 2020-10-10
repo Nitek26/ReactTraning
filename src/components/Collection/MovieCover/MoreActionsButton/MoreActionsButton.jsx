@@ -4,7 +4,7 @@ import { Dropdown } from 'react-bootstrap';
 import EditMovieModal from '../EditMovieModal/EditMovieModal';
 import DeleteMovieModal from '../DeleteMovieModal/DeleteMovieModal';
 
-function MoreActionsButton() {
+function MoreActionsButton(props) {
     const [showEdit, setEdit] = useState(false);
     const [showDelete, setDelete] = useState(false);
 
@@ -24,8 +24,8 @@ function MoreActionsButton() {
                     <Dropdown.Item onClick={handleDeleteShow}>Delete</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
-            <EditMovieModal handleEditClose={handleEditClose} handleEditShow={handleEditShow} showEdit={showEdit}></EditMovieModal>
-            <DeleteMovieModal handleDeleteClose={handleDeleteClose} handleDeleteShow={handleDeleteShow} showDelete={showDelete}></DeleteMovieModal>
+            <EditMovieModal movie={props.movie} handleEditClose={handleEditClose} handleEditShow={handleEditShow} showEdit={showEdit}></EditMovieModal>
+            <DeleteMovieModal movie={props.movie} handleDeleteClose={handleDeleteClose} handleDeleteShow={handleDeleteShow} showDelete={showDelete}></DeleteMovieModal>
         </>
     )
 }

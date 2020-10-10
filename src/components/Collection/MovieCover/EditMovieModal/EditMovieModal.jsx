@@ -1,52 +1,48 @@
 import React from 'react';
 import './EditMovieModal.css'
 import { Form, Button, Modal } from 'react-bootstrap';
-import genres from './../../../../data/MovieGenres.js';
 
 function EditMovieModal(props) {
     return (
         <Modal show={props.showEdit} onHide={props.handleEditClose}>
             <Modal.Header closeButton>
-                <Modal.Title>EDIT</Modal.Title>
+                <Modal.Title>EDIT MOVIE</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
                     <Form.Group controlId="formTitle">
-                        <Form.Label>Title</Form.Label>
-                        <Form.Control placeholder="Title" />
+                        <Form.Label>MOVIE ID</Form.Label><br></br>
+                        <Form.Label>{props.movie.id}</Form.Label>
+                    </Form.Group>
+                    <Form.Group controlId="formTitle">
+                        <Form.Label>TITLE</Form.Label>
+                        <Form.Control value={props.movie.title} />
                     </Form.Group>
                     <Form.Group controlId="formReleaseDate">
-                        <Form.Label>Release Date</Form.Label>
-                        <Form.Control placeholder="Select Date" />
+                        <Form.Label>RELEASE DATE</Form.Label>
+                        <Form.Control value={props.movie.release_date} />
                     </Form.Group>
                     <Form.Group controlId="formUrl">
-                        <Form.Label>Movie URL</Form.Label>
-                        <Form.Control placeholder="Movie URL here" />
+                        <Form.Label>MOVIE URL</Form.Label>
+                        <Form.Control value={props.movie.poster_path} />
                     </Form.Group>
                     <Form.Group controlId="formGenre">
-                        <Form.Label>Genre</Form.Label>
-                        <Form.Control as="select">
-                            <option default>Select Genre</option>
-                            <option>{genres.DOCUMENTARY}</option>
-                            <option>{genres.COMEDY}</option>
-                            <option>{genres.HORROR}</option>
-                            <option>{genres.CRIME}</option>
-                            <option>{genres.DRAMA}</option>
-                        </Form.Control>
+                        <Form.Label>GENRE</Form.Label>
+                        <Form.Control value={props.movie.genres}></Form.Control>
                     </Form.Group>
                     <Form.Group controlId="formOverview">
-                        <Form.Label>Overview</Form.Label>
-                        <Form.Control placeholder="Overview here" />
+                        <Form.Label>OVERVIEW</Form.Label>
+                        <Form.Control value={props.movie.overview} />
                     </Form.Group>
                     <Form.Group controlId="formRuntime">
-                        <Form.Label>Runtime</Form.Label>
-                        <Form.Control placeholder="Runtime here" />
+                        <Form.Label>RUNTIME</Form.Label>
+                        <Form.Control value={props.movie.runtime || ""} />
                     </Form.Group>
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={props.handleEditClose}>RESET</Button>
-                <Button variant="primary" onClick={props.handleEditClose}>EDIT</Button>
+                <Button variant="secondary" className="pink-empty-btn" onClick={props.handleEditClose}>RESET</Button>
+                <Button variant="primary" className="pink-full-btn" onClick={props.handleEditClose}>EDIT</Button>
             </Modal.Footer>
         </Modal>
     )

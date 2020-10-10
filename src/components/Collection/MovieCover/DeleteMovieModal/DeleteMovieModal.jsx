@@ -6,13 +6,13 @@ function DeleteMovieModal(props) {
     return (
         <Modal show={props.showDelete} onHide={props.handleDeleteClose}>
             <Modal.Header closeButton>
-                <Modal.Title>DELETE</Modal.Title>
+                <Modal.Title>DELETE MOVIE</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                delete!!!
+                Are You sure You want to delete this movie?
         </Modal.Body>
             <Modal.Footer>
-                <Button variant="primary" onClick={props.handleDeleteClose}>DELETE</Button>
+                <Button className="pink-full-btn" onClick={props.handleDeleteClose}>CONFIRM</Button>
             </Modal.Footer>
         </Modal>
     )

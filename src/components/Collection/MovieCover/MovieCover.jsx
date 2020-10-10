@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 class MovieCover extends React.Component {
     render() {
         return <div className="movie-cover">
-            <MoreActionsButton></MoreActionsButton>
+            <MoreActionsButton movie={this.props.movie}></MoreActionsButton>
             <img src={this.props.movie.poster_path} alt={this.props.movie.title}></img>
             <div className="movie-details">
                 <div className="title">{this.props.movie.title}</div>
