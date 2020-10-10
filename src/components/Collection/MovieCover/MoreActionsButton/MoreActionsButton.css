@@ -22,3 +22,14 @@
     top: -7px!important;
     left: -3px;
 }
+
+.dropdown-dark .dropdown-menu{
+    background-color: #232323!important;
+}
+
+.dropdown-dark .dropdown-item{
+    color: white!important;
+}
+.dropdown-dark .dropdown-item:hover{
+    background-color: #F65261!important;
+}

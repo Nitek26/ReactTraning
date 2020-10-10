@@ -4,7 +4,7 @@ import { Button, Modal } from 'react-bootstrap';
 
 function DeleteMovieModal(props) {
     return (
-        <Modal show={props.showDelete} onHide={props.handleDeleteClose}>
+        <Modal show={props.showDelete} onHide={props.handleDeleteClose} className="modal-dark">
             <Modal.Header closeButton>
                 <Modal.Title>DELETE MOVIE</Modal.Title>
             </Modal.Header>

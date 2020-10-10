@@ -16,7 +16,7 @@ function AddMovie() {
                 + ADD MOVIE
                     </Button>
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} className="modal-dark">
                 <Modal.Header closeButton>
                     <Modal.Title>ADD MOVIE</Modal.Title>
                 </Modal.Header>
@@ -56,8 +56,8 @@ function AddMovie() {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>RESET</Button>
-                    <Button variant="primary" onClick={handleClose}>SUBMIT</Button>
+                    <Button className="pink-empty-btn" onClick={handleClose}>RESET</Button>
+                    <Button className="pink-full-btn" onClick={handleClose}>SUBMIT</Button>
                 </Modal.Footer>
             </Modal>
         </>

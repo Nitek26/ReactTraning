@@ -58,3 +58,38 @@ padding: 0 10px;
   border:2px solid #bf5c65!important;
   font-weight: 600!important;
 }
+
+.modal-dark .modal-content{
+  background-color: #232323!important;
+color: white!important;
+}
+.modal-dark .form-label{
+  color: #F65261!important;
+ font-weight: 500;
+}
+
+.modal-dark input{
+  background-color: #424242!important;
+  border: none!important;
+  color: white!important;
+}
+
+.modal-dark select{
+  background-color: #424242!important;
+  border: none!important;
+  color: white!important;
+}
+
+.modal-dark .close{
+  color: white!important;
+  font-size: 40px;
+  opacity: 1;
+}
+
+.modal-footer{
+  border:none!important;
+}
+
+.modal-header{
+  border:none!important;
+}

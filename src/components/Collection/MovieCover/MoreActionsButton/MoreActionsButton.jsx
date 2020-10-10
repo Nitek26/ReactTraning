@@ -16,7 +16,7 @@ function MoreActionsButton(props) {
 
     return (
         <>
-            <Dropdown>
+            <Dropdown className="dropdown-dark">
                 <Dropdown.Toggle className="more-btn" id="dropdown-basic" tag="button" type="button">
                 </Dropdown.Toggle>
                 <Dropdown.Menu>

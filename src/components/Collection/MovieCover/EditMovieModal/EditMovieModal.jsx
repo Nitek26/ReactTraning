@@ -4,7 +4,7 @@ import { Form, Button, Modal } from 'react-bootstrap';
 
 function EditMovieModal(props) {
     return (
-        <Modal show={props.showEdit} onHide={props.handleEditClose}>
+        <Modal show={props.showEdit} onHide={props.handleEditClose} className="modal-dark">
             <Modal.Header closeButton>
                 <Modal.Title>EDIT MOVIE</Modal.Title>
             </Modal.Header>
@@ -12,7 +12,7 @@ function EditMovieModal(props) {
                 <Form>
                     <Form.Group controlId="formTitle">
                         <Form.Label>MOVIE ID</Form.Label><br></br>
-                        <Form.Label>{props.movie.id}</Form.Label>
+                        <label>{props.movie.id}</label>
                     </Form.Group>
                     <Form.Group controlId="formTitle">
                         <Form.Label>TITLE</Form.Label>
