@@ -28,7 +28,7 @@ function AddMovie() {
                         </Form.Group>
                         <Form.Group controlId="formReleaseDate">
                             <Form.Label>Release Date</Form.Label>
-                            <Form.Control placeholder="Select Date" />
+                            <Form.Control placeholder="Select Date" type="date" />
                         </Form.Group>
                         <Form.Group controlId="formUrl">
                             <Form.Label>Movie URL</Form.Label>
@@ -36,14 +36,16 @@ function AddMovie() {
                         </Form.Group>
                         <Form.Group controlId="formGenre">
                             <Form.Label>Genre</Form.Label>
-                            <Form.Control as="select">
-                                <option default>Select Genre</option>
-                                <option>{genres.DOCUMENTARY}</option>
-                                <option>{genres.COMEDY}</option>
-                                <option>{genres.HORROR}</option>
-                                <option>{genres.CRIME}</option>
-                                <option>{genres.DRAMA}</option>
-                            </Form.Control>
+                            <span className="wrap">
+                                <Form.Control as="select">
+                                    <option default>Select Genre</option>
+                                    <option>{genres.DOCUMENTARY}</option>
+                                    <option>{genres.COMEDY}</option>
+                                    <option>{genres.HORROR}</option>
+                                    <option>{genres.CRIME}</option>
+                                    <option>{genres.DRAMA}</option>
+                                </Form.Control>
+                            </span>
                         </Form.Group>
                         <Form.Group controlId="formOverview">
                             <Form.Label>Overview</Form.Label>

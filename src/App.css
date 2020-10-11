@@ -85,6 +85,15 @@ color: white!important;
   font-size: 40px;
   opacity: 1;
 }
+.modal-dark .close:hover{
+  box-shadow:none!important;
+  border: none!important;
+  color: #F65261!important;
+}
+
+.modal-dark .close:focus{
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
 
 .modal-footer{
   border:none!important;
@@ -92,4 +101,75 @@ color: white!important;
 
 .modal-header{
   border:none!important;
+}
+
+input[type="date"] {
+  position: relative;
+}
+
+/* create a new arrow, because we are going to mess up the native one
+see "List of symbols" below if you want another, you could also try to add a font-awesome icon.. */
+input[type="date"]:after {
+  font-family: "FontAwesome";
+  font-weight: 900; 
+  content: "\f073"!important;
+  color: #F65261!important;
+  padding: 0 5px;
+}
+
+/* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+}
+
+/* adjust increase/decrease button */
+input[type="date"]::-webkit-inner-spin-button {
+  z-index: 1;
+}
+
+/* adjust clear button */
+input[type="date"]::-webkit-clear-button {
+   z-index: 1;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  cursor: pointer;
+}
+
+
+span.wrap {
+  overflow: hidden; 
+  position: relative;
+  display: block;
+}
+
+select{       
+  padding: 10px;
+  border: 0;
+  width: 100%;
+ -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+span.wrap:after {
+  content:"\f0dd ";
+  color: #F65261!important;
+  font-family: FontAwesome;
+  color: #000;
+  position: absolute; 
+  right: 7px; 
+  top: -7px;
+  z-index: 1;
+  height: 100%;  
+  pointer-events: none;    
+  font-size:30px;
+  padding: 0 5px;
 }

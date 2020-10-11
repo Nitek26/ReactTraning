@@ -8,7 +8,7 @@ class OrderBar extends React.Component {
 
             <div className="bar">
                 <span>SORT BY</span>
-                <div className="select-bar-dropdown">
+                <span className="select-bar-dropdown wrap">
                     <select onChange={this.props.orderBy}>
                         <option value={movieSortProps.RELEASE_DATE}>RELEASE DATE</option>
                         <option value={movieSortProps.VOTE_AVRAGE}>VOTE AVRAGE</option>
@@ -17,7 +17,7 @@ class OrderBar extends React.Component {
                         <option value={movieSortProps.BUDGET}>BUDGET</option>
                         <option value={movieSortProps.REVENUE}>REVENUE</option>
                     </select>
-                </div>
+                </span>
             </div>
         </div>
     }

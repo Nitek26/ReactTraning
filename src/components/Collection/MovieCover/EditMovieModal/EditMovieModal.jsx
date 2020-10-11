@@ -20,7 +20,7 @@ function EditMovieModal(props) {
                     </Form.Group>
                     <Form.Group controlId="formReleaseDate">
                         <Form.Label>RELEASE DATE</Form.Label>
-                        <Form.Control value={props.movie.release_date} />
+                        <Form.Control value={props.movie.release_date} type="date" />
                     </Form.Group>
                     <Form.Group controlId="formUrl">
                         <Form.Label>MOVIE URL</Form.Label>
