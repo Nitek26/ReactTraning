@@ -1,5 +1,6 @@
 {
-  "name": "module1",
+  "homepage": "./",
+  "name": "react-roulette",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
