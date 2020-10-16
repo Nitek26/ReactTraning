@@ -1,20 +1,35 @@
 
 .more-btn {
-    border-radius: 50%;
-    height: 30px;
-    width: 30px;
-    color: white;
-    background-color: #232323;
-    opacity: 0.8;
-    transform: rotate(-90deg);
-    font-weight: bold;
-    position: absolute;
-    right: 3px;
-    top:3px;
+    border-radius: 50%!important;
+    height: 30px!important;
+    width: 30px!important;
+    color: white!important;
+    background-color: #232323!important;
+    opacity: 0.8!important;
+    transform: rotate(-90deg)!important;
+    font-weight: bold!important;
+    position: absolute!important;
+    right: 3px!important;
+    top:3px!important;
+    border: none!important;
 }
 
-.more-btn::after {
-    content: "...";
-    position: relative;
-    top: -5px;
+.dropdown-toggle::after {
+    content: "..."!important;
+    position: relative!important;
+    top: -5px!important;
+    border: none!important;
+    top: -7px!important;
+    left: -3px;
+}
+
+.dropdown-dark .dropdown-menu{
+    background-color: #232323!important;
+}
+
+.dropdown-dark .dropdown-item{
+    color: white!important;
+}
+.dropdown-dark .dropdown-item:hover{
+    background-color: #F65261!important;
 }

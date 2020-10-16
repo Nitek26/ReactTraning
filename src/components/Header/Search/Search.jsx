@@ -7,7 +7,7 @@ class Search extends React.Component {
             <div className="find-movie-txt">FIND YOUR MOVIE</div>
             <div>
                 <input className="search-input" placeholder="What do you want to watch?"></input>
-                <button className="search-btn">Search</button>
+                <button className="pink-full-btn">Search</button>
             </div>
         </div>
     }
