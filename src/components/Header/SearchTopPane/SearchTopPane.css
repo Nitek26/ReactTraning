@@ -1,9 +1,5 @@
 .search-top-pane{
-    padding: 20px;
     display: flex;    
     justify-content: space-between
 }
 
-.search-top-pane .logo{
-    margin-left: 30px;
-}

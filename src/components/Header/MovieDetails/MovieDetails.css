@@ -1,0 +1,49 @@
+.movie-content-wrapper {
+    background-color: #232323;
+    height: 100%;
+    opacity: 0.9;
+}
+
+.details-content-wrapper {
+    margin: 30px;
+    display: flex;
+}
+
+.details-content-wrapper h1 {
+    line-height: 60px;
+}
+
+.details-content-wrapper img {
+    width: 200px;
+    height: 300px;
+}
+
+.details-txt {
+    margin-left: 30px;
+}
+
+.movie-details-time-pane {
+    color: #F65261;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.movie-details-time-pane>span {
+    margin-right: 40px;
+}
+
+.movie-tagline {
+    font-size: 14px;
+    margin-top: -20px;
+}
+
+.circle-with-text {
+    font-size: 20px;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    border: 2px solid #F65261;
+    display: inline-block;
+    text-align: center;
+}

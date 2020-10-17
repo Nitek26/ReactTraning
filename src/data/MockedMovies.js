@@ -4,7 +4,7 @@ var movies = {
         {
             "id": 447365,
             "title": "Guardians of the Galaxy Vol. 3",
-            "tagline": "",
+            "tagline": "Some fake tagline for tests",
             "vote_average": 0,
             "vote_count": 9,
             "release_date": "2020-05-01",
@@ -17,12 +17,12 @@ var movies = {
                 "Adventure",
                 "Science Fiction"
             ],
-            "runtime": null
+            "runtime": 45
         },
         {
             "id": 424785,
             "title": "Transformers 7",
-            "tagline": "",
+            "tagline": "Some fake tagline for tests",
             "vote_average": 0,
             "vote_count": 0,
             "release_date": "2019-06-26",
@@ -35,12 +35,12 @@ var movies = {
                 "Action",
                 "Adventure"
             ],
-            "runtime": null
+            "runtime": 55
         },
         {
             "id": 299534,
             "title": "Untitled Avengers",
-            "tagline": "",
+            "tagline": "Some fake tagline for tests",
             "vote_average": 0,
             "vote_count": 9,
             "release_date": "2019-04-24",
@@ -53,12 +53,12 @@ var movies = {
                 "Adventure",
                 "Science Fiction"
             ],
-            "runtime": null
+            "runtime": 43
         },
         {
             "id": 287947,
             "title": "Shazam!",
-            "tagline": "",
+            "tagline": "Some fake tagline for tests",
             "vote_average": 0,
             "vote_count": 5,
             "release_date": "2019-04-05",
@@ -72,12 +72,12 @@ var movies = {
                 "Fantasy",
                 "Science Fiction"
             ],
-            "runtime": null
+            "runtime": 234
         },
         {
             "id": 320288,
             "title": "X-Men: Dark Phoenix",
-            "tagline": "",
+            "tagline": "Some fake tagline for tests",
             "vote_average": 0,
             "vote_count": 0,
             "release_date": "2019-02-14",
@@ -89,12 +89,12 @@ var movies = {
                 "Action",
                 "Science Fiction"
             ],
-            "runtime": null
+            "runtime": 433
         },
         {
             "id": 181790,
             "title": "Journey 3: From the Earth to the Moon",
-            "tagline": "",
+            "tagline": "Some fake tagline for tests",
             "vote_average": 0,
             "vote_count": 7,
             "release_date": "2018-12-31",
@@ -113,7 +113,7 @@ var movies = {
         {
             "id": 297802,
             "title": "Aquaman",
-            "tagline": "",
+            "tagline": "Some fake tagline for tests",
             "vote_average": 0,
             "vote_count": 0,
             "release_date": "2018-12-19",
@@ -131,7 +131,7 @@ var movies = {
         {
             "id": 353081,
             "title": "Mission: Impossible - Fallout",
-            "tagline": "",
+            "tagline": "Some fake tagline for tests",
             "vote_average": 0,
             "vote_count": 3,
             "release_date": "2018-07-26",
@@ -169,7 +169,7 @@ var movies = {
         {
             "id": 348350,
             "title": "Solo: A Star Wars Story",
-            "tagline": "",
+            "tagline": "Some fake tagline for tests",
             "vote_average": 0,
             "vote_count": 2,
             "release_date": "2018-05-23",
