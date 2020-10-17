@@ -8,7 +8,7 @@ function Homepage() {
     const [selectedMovie, setSelectedMovie] = useState(null);
     return (
         <div className="homepage">
-            <Header selectedMovie={selectedMovie} ></Header>
+            <Header selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} ></Header>
             <Collection setSelectedMovie={setSelectedMovie}></Collection>
             <Footer></Footer>
         </div>

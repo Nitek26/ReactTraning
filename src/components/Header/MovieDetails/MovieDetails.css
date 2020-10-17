@@ -20,6 +20,7 @@
 
 .details-txt {
     margin-left: 30px;
+    width: 80%!important;
 }
 
 .movie-details-time-pane {
@@ -46,4 +47,15 @@
     border: 2px solid #F65261;
     display: inline-block;
     text-align: center;
+}
+
+.search-back-btn {
+    margin-right: 30px;
+    margin-top: 10px;
+    color: #F65261;
+}
+
+.search-back-btn:hover {
+    cursor: pointer;
+    color: #c33e49;
 }

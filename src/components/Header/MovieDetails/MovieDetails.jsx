@@ -4,11 +4,19 @@ import './MovieDetails.css'
 
 function MovieDetails(props) {
     const movie = props.selectedMovie;
-    return (
-        <div className="movie-content-wrapper"><Logo></Logo>
 
+    const closeMovieDetails = () => {
+        props.setSelectedMovie(null);
+    };
+
+    return (
+        <div className="movie-content-wrapper">
+            <div className="search-top-pane">
+                <Logo />
+                <div className="search-back-btn" onClick={closeMovieDetails}><i class="fa fa-search" aria-hidden="true"></i></div>
+            </div>
             <div className="details-content-wrapper">
-                <img src={movie.poster_path} />
+                <img src={movie.poster_path} alt={movie.title} />
                 <div className="details-txt">
                     <h1>{movie.title} <span className="circle-with-text">343</span></h1>
                     <p className="movie-tagline">{movie.tagline}</p>
@@ -18,7 +26,8 @@ function MovieDetails(props) {
                     </div>
                     {movie.overview}
                 </div>
-            </div></div>
+            </div>
+        </div>
     )
 }
 

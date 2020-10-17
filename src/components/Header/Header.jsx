@@ -8,7 +8,7 @@ function Header(props) {
     return <div className="header">
         <div className="blur">
             {props.selectedMovie
-                ? <MovieDetails selectedMovie={props.selectedMovie} /> :
+                ? <MovieDetails selectedMovie={props.selectedMovie} setSelectedMovie={props.setSelectedMovie} /> :
                 <><SearchTopPane />
                     <Search /></>
             }
