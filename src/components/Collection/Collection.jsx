@@ -31,7 +31,7 @@ class Collection extends React.Component {
     render() {
         return <div className="movie-collection">
             <CollectionTopPane found={this.state.movies.length} filterByGenre={this.filterByGenre} orderBy={this.orderBy}></CollectionTopPane>
-            <MovieCoversList movies={this.state.movies}></MovieCoversList>
+            <MovieCoversList movies={this.state.movies} setSelectedMovie={this.props.setSelectedMovie}></MovieCoversList>
         </div>
     }
 }
