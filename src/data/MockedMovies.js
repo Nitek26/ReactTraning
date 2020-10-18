@@ -1,4 +1,4 @@
-var movies = {
+var mockedMovies = {
     "totalAmount": 3000,
     "data": [
         {
@@ -15,7 +15,8 @@ var movies = {
             "genres": [
                 "Action",
                 "Adventure",
-                "Science Fiction"
+                "Science Fiction",
+                "Comedy"
             ],
             "runtime": 45
         },
@@ -33,7 +34,8 @@ var movies = {
             "genres": [
                 "Science Fiction",
                 "Action",
-                "Adventure"
+                "Adventure",
+                "Drama"
             ],
             "runtime": 55
         },
@@ -191,4 +193,4 @@ var movies = {
 }
 
 
-export default movies;
+export default mockedMovies;

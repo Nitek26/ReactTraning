@@ -4,13 +4,11 @@ import FilterBar from '../FilterBar/FilterBar'
 import OrderBar from '../OrderBar/OrderBar'
 
 
-class CollectionTopPane extends React.Component {
-    render() {
-        return <div className="collection-top-pane">
-            <FilterBar found={this.props.found} filterByGenre={this.props.filterByGenre}></FilterBar>
-            <OrderBar orderBy={this.props.orderBy}></OrderBar>
-        </div>
-    }
+function CollectionTopPane(props) {
+    return <div className="collection-top-pane">
+        <FilterBar found={props.found} filterByGenre={props.filterByGenre}></FilterBar>
+        <OrderBar orderBy={props.orderBy}></OrderBar>
+    </div>
 }
 
 export default CollectionTopPane;
