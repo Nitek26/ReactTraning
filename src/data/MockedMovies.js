@@ -1,4 +1,4 @@
-var mockedMovies = {
+var mockedMoviesAPI = {
     "totalAmount": 3000,
     "data": [
         {
@@ -193,4 +193,4 @@ var mockedMovies = {
 }
 
 
-export default mockedMovies;
+export default mockedMoviesAPI;

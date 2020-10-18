@@ -6,8 +6,8 @@ import OrderBar from '../OrderBar/OrderBar'
 
 function CollectionTopPane(props) {
     return <div className="collection-top-pane">
-        <FilterBar found={props.found} filterByGenre={props.filterByGenre}></FilterBar>
-        <OrderBar orderBy={props.orderBy}></OrderBar>
+        <FilterBar found={props.found} filterByGenre={props.filterByGenreEvent}></FilterBar>
+        <OrderBar orderBy={props.orderByEvent}></OrderBar>
     </div>
 }
 
