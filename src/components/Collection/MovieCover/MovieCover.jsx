@@ -3,18 +3,19 @@ import './MovieCover.css'
 import MoreActionsButton from './MoreActionsButton/MoreActionsButton'
 import PropTypes from 'prop-types'
 
-class MovieCover extends React.Component {
-    render() {
-        return <div className="movie-cover">
-            <MoreActionsButton movie={this.props.movie}></MoreActionsButton>
-            <img src={this.props.movie.poster_path} alt={this.props.movie.title}></img>
-            <div className="movie-details">
-                <div className="title">{this.props.movie.title}</div>
-                <div className="year">{new Date(this.props.movie.release_date).getFullYear()}</div>
-                <div className="genre">{this.props.movie.genres.join(', ')}</div>
-            </div>
-        </div>
+function MovieCover(props) {
+    const selecteMovieClick = () => {
+        props.setSelectedMovie(props.movie);
     }
+    return <div className="movie-cover" >
+        <MoreActionsButton movie={props.movie}></MoreActionsButton>
+        <img src={props.movie.poster_path} alt={props.movie.title} onClick={selecteMovieClick}></img>
+        <div className="movie-details">
+            <div className="title">{props.movie.title}</div>
+            <div className="year">{new Date(props.movie.release_date).getFullYear()}</div>
+            <div className="genre">{props.movie.genres.join(', ')}</div>
+        </div>
+    </div>
 }
 
 MovieCover.propTypes = {

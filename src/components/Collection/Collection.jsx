@@ -1,39 +1,39 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 import './Collection.css'
 import CollectionTopPane from './CollectionTopPane/CollectionTopPane'
 import MovieCoversList from './MovieCoversList/MovieCoversList'
-import movies from '../../data/MockedMovies.js'
+import mockedMoviesAPI from '../../data/MockedMovies.js'
 import genres from '../../data/MovieGenres.js';
+import movieSortProps from '../../data/MovieSortProps.js';
+import { useEffect } from 'react'
 
-class Collection extends React.Component {
-    state = {
-        movies: movies.data
+function Collection(props) {
+    const [movies, setMovies] = useState(mockedMoviesAPI.data);
+    const [genreFilter, setGenreFilter] = useState(genres.ALL);
+    const [orderByVal, setorderByVal] = useState(movieSortProps.RELEASE_DATE);
+
+    const getSortedMovies = useCallback((collection) => collection.sort((a, b) => (a[orderByVal] > b[orderByVal]) ?
+        1 : -1), [orderByVal]);
+    const getFilteredMovies = useCallback((collection) => genreFilter === genres.ALL ?
+        collection : collection.filter(movie => movie.genres.includes(genreFilter)), [genreFilter]);
+
+    const filterByGenreEvent = (e) => {
+        setGenreFilter(e.target.value);
     };
 
-    filterByGenre = (e) => {
-        e.preventDefault();
-        let genreFilter = e.target.value;
-        if (genreFilter === genres.ALL) {
-            this.setState({ movies: movies.data });
-            return;
-        }
-
-        let filteredMovies = this.state.movies.filter(movie => movie.genres.includes(genreFilter));
-        this.setState({ movies: filteredMovies })
+    const orderByEvent = (e) => {
+        setorderByVal(e.target.value);
     }
 
-    orderBy = (e) => {
-        let orderByValue = e.target.value;
-        let orderedMovies = this.state.movies.sort((a, b) => (a[orderByValue] > b[orderByValue]) ? 1 : -1)
-        this.setState({ movies: orderedMovies });
-    }
+    useEffect(() => {
+        let filteredMovies = getFilteredMovies(mockedMoviesAPI.data);
+        setMovies(getSortedMovies(filteredMovies));
+    }, [genreFilter, orderByVal, getSortedMovies, getFilteredMovies]);
 
-    render() {
-        return <div className="movie-collection">
-            <CollectionTopPane found={this.state.movies.length} filterByGenre={this.filterByGenre} orderBy={this.orderBy}></CollectionTopPane>
-            <MovieCoversList movies={this.state.movies}></MovieCoversList>
-        </div>
-    }
+    return <div className="movie-collection">
+        <CollectionTopPane found={movies.length} filterByGenreEvent={filterByGenreEvent} orderByEvent={orderByEvent}></CollectionTopPane>
+        <MovieCoversList movies={movies} setSelectedMovie={props.setSelectedMovie}></MovieCoversList>
+    </div>
 }
 
 export default Collection;

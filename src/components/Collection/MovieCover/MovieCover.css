@@ -5,7 +5,9 @@
     background: rgb(12, 12, 2);
     position: relative;
 }
-
+.movie-cover img:hover{
+    cursor: pointer;
+}
 .movie-details{
     padding: 5px;
 }
