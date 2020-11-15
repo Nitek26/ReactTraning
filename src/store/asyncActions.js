@@ -1,5 +1,5 @@
 import axios from 'axios';
-import genres from '../data/MovieGenres'
+// import genres from '../data/MovieGenres'
 
 export const SearchForMovie = (searchTerm) => async (dispatch) => {
     //here turn on loader

@@ -31,6 +31,20 @@ const moviesReducer = (state = {}, action) => {
                 searchTxt: txt
             };
         }
+        case (ACTIONS.SET_GENRE_FILTER): {
+            let filter = action.payload.filter;
+            return {
+                ...state,
+                genreFilter: filter
+            };
+        }
+        case (ACTIONS.SET_ORDER_BY): {
+            let order = action.payload.order;
+            return {
+                ...state,
+                orderByVal: order
+            };
+        }
         default: {
             return state;
         }

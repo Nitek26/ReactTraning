@@ -1,4 +1,5 @@
 import genres from '../data/MovieGenres'
+import movieSortProps from '../data/MovieSortProps'
 
 const initialState = {
     viewReducer: {
@@ -9,7 +10,7 @@ const initialState = {
         searchTxt: "",
         movies: [],
         genreFilter: genres.ALL,
-        orderByVal: "",
+        orderByVal: movieSortProps.RELEASE_DATE,
     }
 };
 

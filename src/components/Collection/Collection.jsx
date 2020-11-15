@@ -4,31 +4,31 @@ import CollectionTopPane from './CollectionTopPane/CollectionTopPane'
 import MovieCoversList from './MovieCoversList/MovieCoversList'
 import mockedMoviesAPI from '../../data/MockedMovies.js'
 import genres from '../../data/MovieGenres.js';
-import movieSortProps from '../../data/MovieSortProps.js';
 import { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { getGenreFilter, getMovies, getOrderByVal } from '../../store/selectors'
+import { SetGenreFilter, SetOrderBy } from '../../store/actions'
 
 function Collection(props) {
     const [movies, setMovies] = useState(mockedMoviesAPI.data);
-    const [genreFilter, setGenreFilter] = useState(genres.ALL);
-    const [orderByVal, setorderByVal] = useState(movieSortProps.RELEASE_DATE);
 
-    const getSortedMovies = useCallback((collection) => collection.sort((a, b) => (a[orderByVal] > b[orderByVal]) ?
-        1 : -1), [orderByVal]);
-    const getFilteredMovies = useCallback((collection) => genreFilter === genres.ALL ?
-        collection : collection.filter(movie => movie.genres.includes(genreFilter)), [genreFilter]);
+    const getSortedMovies = useCallback((collection) => collection.sort((a, b) => (a[props.orderByVal] > b[props.orderByVal]) ?
+        1 : -1), [props.orderByVal]);
+    const getFilteredMovies = useCallback((collection) => props.genreFilter === genres.ALL ?
+        collection : collection.filter(movie => movie.genres.includes(props.genreFilter)), [props.genreFilter]);
 
     const filterByGenreEvent = (e) => {
-        setGenreFilter(e.target.value);
+        props.handleSetGenreFilter(e.target.value);
     };
 
     const orderByEvent = (e) => {
-        setorderByVal(e.target.value);
+        props.handleSetOrderBy(e.target.value);
     }
 
     useEffect(() => {
         let filteredMovies = getFilteredMovies(mockedMoviesAPI.data);
         setMovies(getSortedMovies(filteredMovies));
-    }, [genreFilter, orderByVal, getSortedMovies, getFilteredMovies]);
+    }, [props.genreFilter, props.orderByVal, getSortedMovies, getFilteredMovies]);
 
     return <div className="movie-collection">
         <CollectionTopPane found={movies.length} filterByGenreEvent={filterByGenreEvent} orderByEvent={orderByEvent}></CollectionTopPane>
@@ -36,4 +36,19 @@ function Collection(props) {
     </div>
 }
 
-export default Collection;
+const MapStateToProps = (state) => {
+
+    return {
+        movies: getMovies(state),
+        genreFilter: getGenreFilter(state),
+        orderByVal: getOrderByVal(state)
+    };
+}
+
+const MapDispatchToProps = (dispatch) => {
+    return {
+        handleSetGenreFilter: (filter) => dispatch(SetGenreFilter(filter)),
+        handleSetOrderBy: (order) => dispatch(SetOrderBy(order))
+    };
+}
+export default connect(MapStateToProps, MapDispatchToProps)(Collection);

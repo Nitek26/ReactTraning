@@ -21,3 +21,18 @@ export const SetSearchTxt = (txt) => ({
         txt
     }
 });
+
+export const SetGenreFilter = (filter) => ({
+    type: ACTIONS.SET_GENRE_FILTER,
+    payload: {
+        filter
+    }
+});
+
+export const SetOrderBy = (order) => ({
+    type: ACTIONS.SET_ORDER_BY,
+    payload: {
+        order
+    }
+});
+

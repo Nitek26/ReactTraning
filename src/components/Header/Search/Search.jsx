@@ -1,7 +1,7 @@
 import React from 'react'
 import './Search.css'
 import { connect } from 'react-redux'
-import { getSearchState } from '../../../store/selectors.js'
+import { getSearchTxt } from '../../../store/selectors.js'
 import { SetSearchTxt } from '../../../store/actions.js'
 import { SearchForMovie } from '../../../store/asyncActions.js'
 
@@ -19,7 +19,7 @@ function Search(props) {
 }
 const MapStateToProps = (state) => {
     console.log(JSON.stringify(state));
-    let searchTxt = getSearchState(state);
+    let searchTxt = getSearchTxt(state);
     return { searchTxt }
 }
 
