@@ -1,7 +1,7 @@
 import React from 'react'
 import './Search.css'
 import { connect } from 'react-redux'
-import { getSearchTxt } from '../../../store/selectors.js'
+import { getGenreFilter, getOrderByVal, getSearchTxt } from '../../../store/selectors.js'
 import { SetSearchTxt } from '../../../store/actions.js'
 import { SearchForMovie } from '../../../store/asyncActions.js'
 
@@ -13,14 +13,16 @@ function Search(props) {
                 value={props.searchTxt}
                 onChange={(e) => props.handleSearchTxtChange(e.target.value)} >
             </input>
-            <button className="pink-full-btn" onClick={() => props.searchForMovie(props.searchTxt)}>Search</button>
+            <button className="pink-full-btn" onClick={() => props.searchForMovie(props.searchTxt, props.genreFilter, props.orderByVal)}>Search</button>
         </div>
     </div>
 }
 const MapStateToProps = (state) => {
-    console.log(JSON.stringify(state));
-    let searchTxt = getSearchTxt(state);
-    return { searchTxt }
+    return {
+        searchTxt: getSearchTxt(state),
+        genreFilter: getGenreFilter(state),
+        orderByVal: getOrderByVal(state)
+    }
 }
 
 const MapDispatchToProps = (dispatch) => {

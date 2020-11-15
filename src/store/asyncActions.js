@@ -1,18 +1,26 @@
 import axios from 'axios';
-// import genres from '../data/MovieGenres'
+import genres from '../data/MovieGenres'
 
-export const SearchForMovie = (searchTerm) => async (dispatch) => {
+export const SearchForMovie = (searchTerm, genreFilter, orderByVal) => async (dispatch) => {
     //here turn on loader
-    let url = `http://localhost:4000/movies?limit=12&&sortOrder=asc&search=${searchTerm}&searchBy=title`
-    // if (genreFilter !== genres.ALL) {
-    //     url = url + `&filter=${genreFilter}`;
-    // }
+    console.log("Api call!");
+    let url = `http://localhost:4000/movies?limit=12&sortBy=${orderByVal}&sortOrder=asc`
+    if (genreFilter && genreFilter !== genres.ALL) {
+        url = url + `&filter=${genreFilter}`;
+    }
+
+    if (searchTerm && searchTerm !== "") {
+        url += `&search=${searchTerm}&searchBy=title`;
+    }
+
+    console.log('url: ' + url);
+
     axios.get(url)
         .then(response => {
-            console.log(response.data);
+            console.log('Response: ' + JSON.stringify(response.data));
             //dispatch load users
         })
         .catch(error => {
-            console.log(error.message);
+            console.log('error: ' + error.message);
         });
 }

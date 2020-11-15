@@ -36,3 +36,12 @@ export const SetOrderBy = (order) => ({
     }
 });
 
+export const LoadMovies = (movies) => ({
+    type: ACTIONS.LOAD_MOVIES,
+    payload: {
+        movies
+    }
+});
+
+
+

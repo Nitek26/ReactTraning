@@ -45,6 +45,13 @@ const moviesReducer = (state = {}, action) => {
                 orderByVal: order
             };
         }
+        case (ACTIONS.LOAD_MOVIES): {
+            let movies = action.payload.movies;
+            return {
+                ...state,
+                movies: movies
+            }
+        }
         default: {
             return state;
         }
