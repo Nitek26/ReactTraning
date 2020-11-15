@@ -1,11 +1,12 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import initialState from './initialState.js'
-import { viewReducer } from './reducers';
+import { viewReducer, moviesReducer } from './reducers';
 
 
 const rootReducer = combineReducers({
-    viewReducer
+    viewReducer,
+    moviesReducer
 });
 
 

@@ -14,3 +14,10 @@ export const ViewDeleteModal = (visible) => ({
         visible
     }
 });
+
+export const SetSearchTxt = (txt) => ({
+    type: ACTIONS.SET_SEARCH_TXT,
+    payload: {
+        txt
+    }
+});

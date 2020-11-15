@@ -1,7 +1,6 @@
 import ACTIONS from './actionsTypes.js'
-import initialState from './initialState.js'
 
-const viewReducer = (state = initialState, action) => {
+const viewReducer = (state = {}, action) => {
     switch (action.type) {
         case ACTIONS.SHOW_EDIT_MODAL: {
             const visible = action.payload.visible;
@@ -23,4 +22,19 @@ const viewReducer = (state = initialState, action) => {
     }
 }
 
-export { viewReducer };
+const moviesReducer = (state = {}, action) => {
+    switch (action.type) {
+        case (ACTIONS.SET_SEARCH_TXT): {
+            let txt = action.payload.txt;
+            return {
+                ...state,
+                searchTxt: txt
+            };
+        }
+        default: {
+            return state;
+        }
+    }
+}
+
+export { viewReducer, moviesReducer };
