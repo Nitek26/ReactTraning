@@ -1,16 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './MoreActionsButton.css'
 import { connect } from 'react-redux';
 import { Dropdown } from 'react-bootstrap';
 import EditMovieModal from '../EditMovieModal/EditMovieModal';
 import DeleteMovieModal from '../DeleteMovieModal/DeleteMovieModal';
-import { ViewEditModal } from '../../../../store/actions.js'
+import { ViewDeleteModal, ViewEditModal } from '../../../../store/actions.js'
+import { getEditModalVisbility, getDeleteModalVisbility } from '../../../../store/selectors.js'
 
 function MoreActionsButton(props) {
-    const [showDelete, setDelete] = useState(false);
-    const handleDeleteClose = () => setDelete(false);
-    const handleDeleteShow = () => setDelete(true);
-
     return (
         <>
             <Dropdown className="dropdown-dark">
@@ -18,24 +15,27 @@ function MoreActionsButton(props) {
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                     <Dropdown.Item onClick={() => props.handleEditShow()}>Edit</Dropdown.Item>
-                    <Dropdown.Item onClick={handleDeleteShow}>Delete</Dropdown.Item>
+                    <Dropdown.Item onClick={() => props.handleDeleteShow()}>Delete</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
             <EditMovieModal movie={props.movie} handleEditClose={() => props.handleEditClose()} showEdit={props.showEdit}></EditMovieModal>
-            <DeleteMovieModal movie={props.movie} handleDeleteClose={handleDeleteClose} handleDeleteShow={handleDeleteShow} showDelete={showDelete}></DeleteMovieModal>
+            <DeleteMovieModal movie={props.movie} handleDeleteClose={() => props.handleDeleteClose()} showDelete={props.showDelete}></DeleteMovieModal>
         </>
     )
 }
 
 const mapStateToProps = state => {
-    const showEdit = state.viewReducer.showEdit;
-    return { showEdit }
+    const showEdit = getEditModalVisbility(state);
+    const showDelete = getDeleteModalVisbility(state);
+    return { showEdit, showDelete }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         handleEditClose: () => dispatch(ViewEditModal(false)),
-        handleEditShow: () => dispatch(ViewEditModal(true))
+        handleEditShow: () => dispatch(ViewEditModal(true)),
+        handleDeleteClose: () => dispatch(ViewDeleteModal(false)),
+        handleDeleteShow: () => dispatch(ViewDeleteModal(true))
     };
 };
 

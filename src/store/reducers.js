@@ -10,6 +10,13 @@ const viewReducer = (state = initialState, action) => {
                 showEdit: visible
             };
         }
+        case ACTIONS.SHOW_DELETE_MODAL: {
+            const visible = action.payload.visible;
+            return {
+                ...state,
+                showDelete: visible
+            };
+        }
         default: { // need this for default case
             return state;
         }

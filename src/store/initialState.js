@@ -1,6 +1,7 @@
 const initialState = {
     viewReducer: {
-        showEdit: false
+        showEdit: false,
+        showDelete: false
     }
 };
 

@@ -7,3 +7,10 @@ export const ViewEditModal = (visible) => ({
         visible
     }
 });
+
+export const ViewDeleteModal = (visible) => ({
+    type: ACTIONS.SHOW_DELETE_MODAL,
+    payload: {
+        visible
+    }
+});
