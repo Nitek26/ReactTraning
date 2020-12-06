@@ -11,9 +11,11 @@ function Search(props) {
         <div>
             <input className="search-input" placeholder="What do you want to watch?"
                 value={props.searchTxt}
+                onKeyPress={(e) => (e.key === 'Enter') ? props.searchForMovie(props.searchTxt, props.genreFilter, props.orderByVal) : {}}
                 onChange={(e) => props.handleSearchTxtChange(e.target.value)} >
             </input>
-            <button className="pink-full-btn" onClick={() => props.searchForMovie(props.searchTxt, props.genreFilter, props.orderByVal)}>Search</button>
+            <button
+                className="pink-full-btn" onClick={() => props.searchForMovie(props.searchTxt, props.genreFilter, props.orderByVal)}>Search</button>
         </div>
     </div>
 }
