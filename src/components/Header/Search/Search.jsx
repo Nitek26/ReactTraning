@@ -28,7 +28,7 @@ const MapStateToProps = (state) => {
 const MapDispatchToProps = (dispatch) => {
     return {
         handleSearchTxtChange: (txt) => dispatch(SetSearchTxt(txt)),
-        searchForMovie: (txt) => dispatch(SearchForMovie(txt))
+        searchForMovie: (txt, genreFilter, orderByVal) => dispatch(SearchForMovie(txt, genreFilter, orderByVal))
     };
 }
 

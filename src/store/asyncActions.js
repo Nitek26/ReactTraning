@@ -1,10 +1,9 @@
 import axios from 'axios';
 import genres from '../data/MovieGenres'
+import { LoadMovies } from './actions.js'
 
 export const SearchForMovie = (searchTerm, genreFilter, orderByVal) => async (dispatch) => {
-    //here turn on loader
-    console.log("Api call!");
-    let url = `http://localhost:4000/movies?limit=12&sortBy=${orderByVal}&sortOrder=asc`
+    let url = `http://localhost:4000/movies?limit=100&sortBy=${orderByVal}&sortOrder=desc`
     if (genreFilter && genreFilter !== genres.ALL) {
         url = url + `&filter=${genreFilter}`;
     }
@@ -13,12 +12,9 @@ export const SearchForMovie = (searchTerm, genreFilter, orderByVal) => async (di
         url += `&search=${searchTerm}&searchBy=title`;
     }
 
-    console.log('url: ' + url);
-
     axios.get(url)
         .then(response => {
-            console.log('Response: ' + JSON.stringify(response.data));
-            //dispatch load users
+            dispatch(LoadMovies(response.data));
         })
         .catch(error => {
             console.log('error: ' + error.message);

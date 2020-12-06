@@ -1,4 +1,5 @@
 import ACTIONS from './actionsTypes.js'
+import genres from '../data/MovieGenres.js'
 
 const viewReducer = (state = {}, action) => {
     switch (action.type) {
@@ -33,23 +34,27 @@ const moviesReducer = (state = {}, action) => {
         }
         case (ACTIONS.SET_GENRE_FILTER): {
             let filter = action.payload.filter;
+
             return {
                 ...state,
-                genreFilter: filter
+                genreFilter: filter,
+                movies: filter === genres.ALL ? state.fetchedMovies : state.fetchedMovies.filter(movie => movie.genres.includes(filter))
             };
         }
         case (ACTIONS.SET_ORDER_BY): {
             let order = action.payload.order;
             return {
                 ...state,
-                orderByVal: order
+                orderByVal: order,
+                movies: state.movies.sort((a, b) => (a[order] > b[order]) ? 1 : -1)
             };
         }
         case (ACTIONS.LOAD_MOVIES): {
-            let movies = action.payload.movies;
+            let movies = action.payload.movies.data;
             return {
                 ...state,
-                movies: movies
+                movies: movies,
+                fetchedMovies: movies,
             }
         }
         default: {

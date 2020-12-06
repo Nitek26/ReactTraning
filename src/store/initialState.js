@@ -9,6 +9,7 @@ const initialState = {
     moviesReducer: {
         searchTxt: "",
         movies: [],
+        fetchedMovies: [],
         genreFilter: genres.ALL,
         orderByVal: movieSortProps.RELEASE_DATE,
     }
