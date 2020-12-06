@@ -17,6 +17,52 @@ export const SearchForMovie = (searchTerm, genreFilter, orderByVal) => async (di
             dispatch(LoadMovies(response.data));
         })
         .catch(error => {
-            console.log('error: ' + error.message);
+            console.log('SearchForMovie API error: ' + error.message);
         });
 }
+
+export const GetMovie = (id) => async (dispatch) => {
+    let url = `http://localhost:4000/movies/${id}`;
+    axios.delete(url)
+        .then(response => {
+            console.log('GetMovie response: ' + response.data);
+        })
+        .catch(error => {
+            console.log('GetMovie API error: ' + error.message);
+        });
+}
+
+export const EditMovie = (movie) => async (dispatch) => {
+    let url = `http://localhost:4000/movies/`;
+    axios.put(url)
+        .then(response => {
+            console.log('EditMovie response: ' + response.data);
+        })
+        .catch(error => {
+            console.log('EditMovie API error: ' + error.message);
+        });
+}
+
+export const DeleteMovie = (id) => async (dispatch) => {
+    let url = `http://localhost:4000/movies/${id}`;
+    axios.delete(url)
+        .then(response => {
+            console.log('DeleteMovie response: ' + response.data);
+        })
+        .catch(error => {
+            console.log('DeleteMovie API error: ' + error.message);
+        });
+}
+
+export const AddMovie = (movie) => async (dispatch) => {
+    let url = `http://localhost:4000/movies/`;
+    axios.delete(url)
+        .then(response => {
+            console.log('AddMovie response: ' + response.data);
+        })
+        .catch(error => {
+            console.log('AddMovie API error: ' + error.message);
+        });
+}
+
+
