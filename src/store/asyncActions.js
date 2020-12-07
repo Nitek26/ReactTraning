@@ -1,6 +1,6 @@
 import axios from 'axios';
 import genres from '../data/MovieGenres'
-import { LoadMovies } from './actions.js'
+import { LoadMovies, EditMovie, AddMovie, DeleteMovie } from './actions.js'
 
 export const SearchForMovie = (searchTerm, genreFilter, orderByVal) => async (dispatch) => {
     let url = `http://localhost:4000/movies?limit=100&sortBy=${orderByVal}&sortOrder=desc`
@@ -21,22 +21,12 @@ export const SearchForMovie = (searchTerm, genreFilter, orderByVal) => async (di
         });
 }
 
-export const GetMovie = (id) => async (dispatch) => {
-    let url = `http://localhost:4000/movies/${id}`;
-    axios.delete(url)
-        .then(response => {
-            console.log('GetMovie response: ' + response.data);
-        })
-        .catch(error => {
-            console.log('GetMovie API error: ' + error.message);
-        });
-}
-
 export const EditMovie = (movie) => async (dispatch) => {
     let url = `http://localhost:4000/movies/`;
-    axios.put(url)
+    axios.put(url, movie)
         .then(response => {
             console.log('EditMovie response: ' + response.data);
+            dispatch(EditMovie(movie));
         })
         .catch(error => {
             console.log('EditMovie API error: ' + error.message);
@@ -48,6 +38,7 @@ export const DeleteMovie = (id) => async (dispatch) => {
     axios.delete(url)
         .then(response => {
             console.log('DeleteMovie response: ' + response.data);
+            dispatch(DeleteMovie(id));
         })
         .catch(error => {
             console.log('DeleteMovie API error: ' + error.message);
@@ -56,9 +47,10 @@ export const DeleteMovie = (id) => async (dispatch) => {
 
 export const AddMovie = (movie) => async (dispatch) => {
     let url = `http://localhost:4000/movies/`;
-    axios.delete(url)
+    axios.post(url, movie)
         .then(response => {
             console.log('AddMovie response: ' + response.data);
+            dispatch(AddMovie(movie));
         })
         .catch(error => {
             console.log('AddMovie API error: ' + error.message);

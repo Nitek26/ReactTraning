@@ -13,7 +13,7 @@ function MovieDetails(props) {
         <div className="movie-content-wrapper">
             <div className="search-top-pane">
                 <Logo />
-                <div className="search-back-btn" onClick={closeMovieDetails}><i class="fa fa-search" aria-hidden="true"></i></div>
+                <div className="search-back-btn" onClick={closeMovieDetails}><i className="fa fa-search" aria-hidden="true"></i></div>
             </div>
             <div className="details-content-wrapper">
                 <img src={movie.poster_path} alt={movie.title} />

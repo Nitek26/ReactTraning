@@ -43,5 +43,28 @@ export const LoadMovies = (movies) => ({
     }
 });
 
+export const AddMovie = (movie) => ({
+    type: ACTIONS.ADD_MOVIE,
+    payload: {
+        movie
+    }
+});
+
+
+export const EditMovie = (movie) => ({
+    type: ACTIONS.EDIT_MOVIE,
+    payload: {
+        movie
+    }
+});
+
+export const DeleteMovie = (id) => ({
+    type: ACTIONS.DELETE_MOVIE,
+    payload: {
+        id
+    }
+});
+
+
 
 

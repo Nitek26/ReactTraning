@@ -57,6 +57,34 @@ const moviesReducer = (state = {}, action) => {
                 fetchedMovies: movies,
             }
         }
+        case (ACTIONS.ADD_MOVIE): {
+            let movie = action.payload.movie;
+            return {
+                ...state,
+                movies: state.movies.push(movie),
+                fetchedMovies: state.movies.push(movie),
+            }
+        }
+        case (ACTIONS.EDIT_MOVIE): {
+            let movie = action.payload.movie;
+            let editedMovies = state.movies.filter(item => item.id != movie.id);
+            editedMovies.push(movie);
+            return {
+                ...state,
+                movies: editedMovies,
+                fetchedMovies: editedMovies,
+            }
+        }
+        case (ACTIONS.DELETE_MOVIE): {
+            let movieId = action.payload.id;
+            let editedMovies = state.movies.filter(item => item.id != movieId);
+
+            return {
+                ...state,
+                movies: editedMovies,
+                fetchedMovies: editedMovies,
+            }
+        }
         default: {
             return state;
         }
