@@ -13,6 +13,15 @@ const initialState = {
         fetchedMovies: [],
         genreFilter: genres.ALL,
         orderByVal: movieSortProps.RELEASE_DATE,
+        newMovie: {
+            formTitle: "",
+            formReleaseDate: "",
+            formUrl: "",
+            formGenre: "",
+            formOverview: "",
+            formRuntime: ""
+
+        }
     }
 };
 

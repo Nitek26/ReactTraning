@@ -24,6 +24,16 @@ export const ViewAddMovieModal = (visible) => {
     }
 }
 
+export const AddMovieFormChanged = (value, inputName) => {
+    return {
+        type: ACTIONS.ADD_MOVIE_FORM_CHANGED,
+        payload: {
+            value,
+            inputName
+        }
+    }
+}
+
 export const SetSearchTxt = (txt) => ({
     type: ACTIONS.SET_SEARCH_TXT,
     payload: {

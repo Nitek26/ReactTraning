@@ -4,8 +4,15 @@ import { Button, Modal, Form } from 'react-bootstrap';
 import './AddMovie.css'
 import './../../../data/MovieGenres.js';
 import genres from './../../../data/MovieGenres.js';
-import { ViewAddMovieModal } from '../../../store/actions.js'
+import { ViewAddMovieModal, AddMovieFormChanged } from '../../../store/actions.js'
 function AddMovie(props) {
+
+    const handleInputChange = (event) => {
+
+        // alert(`value: ${event.target.value} name: ${event.target.id}`);
+        props.hanldeAddMovieFormChange(event.target.value, event.target.id);
+    }
+
     return (
         <>
             <Button className="pink-full-btn" onClick={props.handleShow}>
@@ -20,20 +27,20 @@ function AddMovie(props) {
                     <Form>
                         <Form.Group controlId="formTitle">
                             <Form.Label>Title</Form.Label>
-                            <Form.Control placeholder="Title" />
+                            <Form.Control placeholder="Title" value={props.title} onChange={(e) => handleInputChange(e)} />
                         </Form.Group>
                         <Form.Group controlId="formReleaseDate">
                             <Form.Label>Release Date</Form.Label>
-                            <Form.Control placeholder="Select Date" type="date" />
+                            <Form.Control placeholder="Select Date" type="date" value={props.releaseDate} onChange={(e) => handleInputChange(e)} />
                         </Form.Group>
                         <Form.Group controlId="formUrl">
                             <Form.Label>Movie URL</Form.Label>
-                            <Form.Control placeholder="Movie URL here" />
+                            <Form.Control placeholder="Movie URL here" value={props.url} onChange={(e) => handleInputChange(e)} />
                         </Form.Group>
                         <Form.Group controlId="formGenre">
                             <Form.Label>Genre</Form.Label>
                             <span className="wrap">
-                                <Form.Control as="select">
+                                <Form.Control as="select" value={props.genre} onChange={(e) => handleInputChange(e)}>
                                     <option default>Select Genre</option>
                                     <option>{genres.DOCUMENTARY}</option>
                                     <option>{genres.COMEDY}</option>
@@ -45,11 +52,11 @@ function AddMovie(props) {
                         </Form.Group>
                         <Form.Group controlId="formOverview">
                             <Form.Label>Overview</Form.Label>
-                            <Form.Control placeholder="Overview here" />
+                            <Form.Control placeholder="Overview here" value={props.overview} onChange={(e) => handleInputChange(e)} />
                         </Form.Group>
                         <Form.Group controlId="formRuntime">
                             <Form.Label>Runtime</Form.Label>
-                            <Form.Control placeholder="Runtime here" />
+                            <Form.Control placeholder="Runtime here" value={props.runtime} onChange={(e) => handleInputChange(e)} />
                         </Form.Group>
                     </Form>
                 </Modal.Body>
@@ -64,14 +71,21 @@ function AddMovie(props) {
 
 const MapStateToProps = (state) => {
     return {
-        show: state.viewReducer.showAdd
+        show: state.viewReducer.showAdd,
+        title: state.moviesReducer.newMovie.title,
+        releaseDate: state.moviesReducer.newMovie.releaseDate,
+        url: state.moviesReducer.newMovie.url,
+        genre: state.moviesReducer.newMovie.genre,
+        overview: state.moviesReducer.newMovie.overview,
+        runtime: state.moviesReducer.newMovie.runtime
     }
 }
 
 const MapDispatchToProps = (dispatch) => {
     return {
         handleShow: () => dispatch(ViewAddMovieModal(true)),
-        handleClose: () => dispatch(ViewAddMovieModal(false))
+        handleClose: () => dispatch(ViewAddMovieModal(false)),
+        hanldeAddMovieFormChange: (value, inputName) => dispatch(AddMovieFormChanged(value, inputName))
     }
 }
 
