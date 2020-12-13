@@ -1,22 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import { Button, Modal, Form } from 'react-bootstrap';
 import './AddMovie.css'
 import './../../../data/MovieGenres.js';
 import genres from './../../../data/MovieGenres.js';
-
-function AddMovie() {
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
+import { ViewAddMovieModal } from '../../../store/actions.js'
+function AddMovie(props) {
     return (
         <>
-            <Button className="pink-full-btn" onClick={handleShow}>
+            <Button className="pink-full-btn" onClick={props.handleShow}>
                 + ADD MOVIE
                     </Button>
 
-            <Modal show={show} onHide={handleClose} className="modal-dark">
+            <Modal show={props.show} onHide={props.handleClose} className="modal-dark">
                 <Modal.Header closeButton>
                     <Modal.Title>ADD MOVIE</Modal.Title>
                 </Modal.Header>
@@ -58,12 +54,25 @@ function AddMovie() {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button className="pink-empty-btn" onClick={handleClose}>RESET</Button>
-                    <Button className="pink-full-btn" onClick={handleClose}>SUBMIT</Button>
+                    <Button className="pink-empty-btn" onClick={props.handleClose}>RESET</Button>
+                    <Button className="pink-full-btn" onClick={props.handleClose}>SUBMIT</Button>
                 </Modal.Footer>
             </Modal>
         </>
     );
 }
 
-export default AddMovie;
+const MapStateToProps = (state) => {
+    return {
+        show: state.viewReducer.showAdd
+    }
+}
+
+const MapDispatchToProps = (dispatch) => {
+    return {
+        handleShow: () => dispatch(ViewAddMovieModal(true)),
+        handleClose: () => dispatch(ViewAddMovieModal(false))
+    }
+}
+
+export default connect(MapStateToProps, MapDispatchToProps)(AddMovie);

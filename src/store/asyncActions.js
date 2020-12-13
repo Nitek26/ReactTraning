@@ -21,7 +21,7 @@ export const SearchForMovie = (searchTerm, genreFilter, orderByVal) => async (di
         });
 }
 
-export const EditMovie = (movie) => async (dispatch) => {
+export const EditMovieAsync = (movie) => async (dispatch) => {
     let url = `http://localhost:4000/movies/`;
     axios.put(url, movie)
         .then(response => {
@@ -33,7 +33,7 @@ export const EditMovie = (movie) => async (dispatch) => {
         });
 }
 
-export const DeleteMovie = (id) => async (dispatch) => {
+export const DeleteMovieAsync = (id) => async (dispatch) => {
     let url = `http://localhost:4000/movies/${id}`;
     axios.delete(url)
         .then(response => {
@@ -45,7 +45,7 @@ export const DeleteMovie = (id) => async (dispatch) => {
         });
 }
 
-export const AddMovie = (movie) => async (dispatch) => {
+export const AddMovieAsync = (movie) => async (dispatch) => {
     let url = `http://localhost:4000/movies/`;
     axios.post(url, movie)
         .then(response => {

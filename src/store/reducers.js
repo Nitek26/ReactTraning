@@ -17,6 +17,13 @@ const viewReducer = (state = {}, action) => {
                 showDelete: visible
             };
         }
+        case ACTIONS.SHOW_ADD_MOVIE_MODAL: {
+            const visible = action.payload.visible;
+            return {
+                ...state,
+                showAdd: visible
+            }
+        }
         default: { // need this for default case
             return state;
         }
@@ -67,7 +74,7 @@ const moviesReducer = (state = {}, action) => {
         }
         case (ACTIONS.EDIT_MOVIE): {
             let movie = action.payload.movie;
-            let editedMovies = state.movies.filter(item => item.id != movie.id);
+            let editedMovies = state.movies.filter(item => item.id !== movie.id);
             editedMovies.push(movie);
             return {
                 ...state,
@@ -77,7 +84,7 @@ const moviesReducer = (state = {}, action) => {
         }
         case (ACTIONS.DELETE_MOVIE): {
             let movieId = action.payload.id;
-            let editedMovies = state.movies.filter(item => item.id != movieId);
+            let editedMovies = state.movies.filter(item => item.id !== movieId);
 
             return {
                 ...state,

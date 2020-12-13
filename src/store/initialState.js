@@ -4,7 +4,8 @@ import movieSortProps from '../data/MovieSortProps'
 const initialState = {
     viewReducer: {
         showEdit: false,
-        showDelete: false
+        showDelete: false,
+        showAdd: false
     },
     moviesReducer: {
         searchTxt: "",

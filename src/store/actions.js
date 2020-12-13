@@ -15,6 +15,15 @@ export const ViewDeleteModal = (visible) => ({
     }
 });
 
+export const ViewAddMovieModal = (visible) => {
+    return {
+        type: ACTIONS.SHOW_ADD_MOVIE_MODAL,
+        payload: {
+            visible
+        }
+    }
+}
+
 export const SetSearchTxt = (txt) => ({
     type: ACTIONS.SET_SEARCH_TXT,
     payload: {
