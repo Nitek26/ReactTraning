@@ -8,9 +8,7 @@ import { ViewAddMovieModal, AddMovieFormChanged } from '../../../store/actions.j
 function AddMovie(props) {
 
     const handleInputChange = (event) => {
-
-        // alert(`value: ${event.target.value} name: ${event.target.id}`);
-        props.hanldeAddMovieFormChange(event.target.value, event.target.id);
+        props.hanldeAddMovieFormChange(event.target.value, event.target.name);
     }
 
     return (
@@ -25,19 +23,19 @@ function AddMovie(props) {
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
-                        <Form.Group controlId="formTitle">
+                        <Form.Group name="title">
                             <Form.Label>Title</Form.Label>
                             <Form.Control placeholder="Title" value={props.title} onChange={(e) => handleInputChange(e)} />
                         </Form.Group>
-                        <Form.Group controlId="formReleaseDate">
+                        <Form.Group name="releaseDate">
                             <Form.Label>Release Date</Form.Label>
                             <Form.Control placeholder="Select Date" type="date" value={props.releaseDate} onChange={(e) => handleInputChange(e)} />
                         </Form.Group>
-                        <Form.Group controlId="formUrl">
+                        <Form.Group name="url">
                             <Form.Label>Movie URL</Form.Label>
                             <Form.Control placeholder="Movie URL here" value={props.url} onChange={(e) => handleInputChange(e)} />
                         </Form.Group>
-                        <Form.Group controlId="formGenre">
+                        <Form.Group name="genre">
                             <Form.Label>Genre</Form.Label>
                             <span className="wrap">
                                 <Form.Control as="select" value={props.genre} onChange={(e) => handleInputChange(e)}>
@@ -50,11 +48,11 @@ function AddMovie(props) {
                                 </Form.Control>
                             </span>
                         </Form.Group>
-                        <Form.Group controlId="formOverview">
+                        <Form.Group name="overview">
                             <Form.Label>Overview</Form.Label>
                             <Form.Control placeholder="Overview here" value={props.overview} onChange={(e) => handleInputChange(e)} />
                         </Form.Group>
-                        <Form.Group controlId="formRuntime">
+                        <Form.Group name="runtime">
                             <Form.Label>Runtime</Form.Label>
                             <Form.Control placeholder="Runtime here" value={props.runtime} onChange={(e) => handleInputChange(e)} />
                         </Form.Group>

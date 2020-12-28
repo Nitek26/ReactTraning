@@ -13,31 +13,31 @@ function EditMovieModal(props) {
             </Modal.Header>
             <Modal.Body>
                 <Form>
-                    <Form.Group controlId="formTitle">
+                    <Form.Group name="id">
                         <Form.Label>MOVIE ID</Form.Label><br></br>
                         <label>{props.movie.id}</label>
                     </Form.Group>
-                    <Form.Group controlId="formTitle">
+                    <Form.Group name="title">
                         <Form.Label>TITLE</Form.Label>
                         <Form.Control value={props.movie.title} />
                     </Form.Group>
-                    <Form.Group controlId="formReleaseDate">
+                    <Form.Group name="releaseDate">
                         <Form.Label>RELEASE DATE</Form.Label>
                         <Form.Control value={props.movie.release_date} type="date" />
                     </Form.Group>
-                    <Form.Group controlId="formUrl">
+                    <Form.Group name="url">
                         <Form.Label>MOVIE URL</Form.Label>
                         <Form.Control value={props.movie.poster_path} />
                     </Form.Group>
-                    <Form.Group controlId="formGenre">
+                    <Form.Group name="genre">
                         <Form.Label>GENRE</Form.Label>
                         <Form.Control value={props.movie.genres}></Form.Control>
                     </Form.Group>
-                    <Form.Group controlId="formOverview">
+                    <Form.Group name="overview">
                         <Form.Label>OVERVIEW</Form.Label>
                         <Form.Control value={props.movie.overview} />
                     </Form.Group>
-                    <Form.Group controlId="formRuntime">
+                    <Form.Group name="runtime">
                         <Form.Label>RUNTIME</Form.Label>
                         <Form.Control value={props.movie.runtime || ""} />
                     </Form.Group>
