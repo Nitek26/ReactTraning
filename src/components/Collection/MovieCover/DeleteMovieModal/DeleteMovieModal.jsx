@@ -1,6 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import './DeleteMovieModal.css';
 import { Button, Modal } from 'react-bootstrap';
+import { getDeleteModalVisbility, getSelectedMovie } from '../../../../store/selectors'
+import { SetSelectedMovie, ViewDeleteModal } from '../../../../store/actions';
 
 function DeleteMovieModal(props) {
     return (
@@ -18,4 +21,16 @@ function DeleteMovieModal(props) {
     )
 }
 
-export default DeleteMovieModal;
+const MapStateToProps = (state) => {
+    return {
+        showDelete: getDeleteModalVisbility(state),
+        movie: getSelectedMovie(state)
+    }
+}
+
+const MapDispatchToProps = (dispatch) => {
+    return {
+        handleDeleteClose: () => { dispatch(SetSelectedMovie(null)); dispatch(ViewDeleteModal(false)) },
+    };
+}
+export default connect(MapStateToProps, MapDispatchToProps)(DeleteMovieModal);

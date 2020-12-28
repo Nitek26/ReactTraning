@@ -20,8 +20,9 @@ const initialState = {
             formGenre: "",
             formOverview: "",
             formRuntime: ""
-
-        }
+        },
+        selectedMovie: null,
+        isHeader: false
     }
 };
 

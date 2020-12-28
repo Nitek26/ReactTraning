@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 function MovieCover(props) {
     const selecteMovieClick = () => {
-        props.setSelectedMovie(props.movie);
+        props.setSelectedMovie(props.movie, true);
     }
     return <div className="movie-cover" >
         <MoreActionsButton movie={props.movie}></MoreActionsButton>

@@ -1,6 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import './EditMovieModal.css'
 import { Form, Button, Modal } from 'react-bootstrap';
+import { getEditModalVisbility, getSelectedMovie } from '../../../../store/selectors'
+import { SetSelectedMovie, ViewEditModal } from '../../../../store/actions';
 
 function EditMovieModal(props) {
     return (
@@ -48,4 +51,16 @@ function EditMovieModal(props) {
     )
 }
 
-export default EditMovieModal;
+const MapStateToProps = (state) => {
+    return {
+        showEdit: getEditModalVisbility(state),
+        movie: getSelectedMovie(state)
+    }
+}
+
+const MapDispatchToProps = (dispatch) => {
+    return {
+        handleEditClose: () => { dispatch(SetSelectedMovie(null)); dispatch(ViewEditModal(false)) },
+    };
+}
+export default connect(MapStateToProps, MapDispatchToProps)(EditMovieModal);

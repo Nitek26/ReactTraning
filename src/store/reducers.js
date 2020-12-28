@@ -94,11 +94,20 @@ const moviesReducer = (state = {}, action) => {
         }
         case (ACTIONS.ADD_MOVIE_FORM_CHANGED): {
             let changedInput = action.payload;
-            let result={
+            let result = {
                 ...state
             }
-            result.newMovie[changedInput.inputName]=changedInput.value;
-            return result;         
+            result.newMovie[changedInput.inputName] = changedInput.value;
+            return result;
+        }
+        case (ACTIONS.SET_SELECTED_MOVIE): {
+            let movie = action.payload.movie;
+
+            return {
+                ...state,
+                selectedMovie: movie,
+                isHeader: action.payload.isHeader
+            }
         }
         default: {
             return state;

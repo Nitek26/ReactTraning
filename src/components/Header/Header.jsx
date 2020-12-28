@@ -7,8 +7,7 @@ import MovieDetails from './MovieDetails/MovieDetails'
 function Header(props) {
     return <div className="header">
         <div className="blur">
-            {props.selectedMovie
-                ? <MovieDetails selectedMovie={props.selectedMovie} setSelectedMovie={props.setSelectedMovie} /> :
+            {(props.selectedMovie && props.isHeader === true) ? <MovieDetails selectedMovie={props.selectedMovie} setSelectedMovie={props.setSelectedMovie} /> :
                 <><SearchTopPane />
                     <Search /></>
             }

@@ -84,6 +84,15 @@ export const DeleteMovie = (id) => ({
     }
 });
 
+export const SetSelectedMovie = (movie, isHeader) => ({
+    type: ACTIONS.SET_SELECTED_MOVIE,
+    payload: {
+        movie,
+        isHeader
+    }
+});
+
+
 
 
 

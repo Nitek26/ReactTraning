@@ -1,11 +1,9 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import './MoreActionsButton.css'
-import { connect } from 'react-redux';
 import { Dropdown } from 'react-bootstrap';
-import EditMovieModal from '../EditMovieModal/EditMovieModal';
-import DeleteMovieModal from '../DeleteMovieModal/DeleteMovieModal';
-import { ViewDeleteModal, ViewEditModal } from '../../../../store/actions.js'
-import { getEditModalVisbility, getDeleteModalVisbility } from '../../../../store/selectors.js'
+import { ViewDeleteModal, ViewEditModal, SetSelectedMovie } from '../../../../store/actions'
+
 
 function MoreActionsButton(props) {
     return (
@@ -14,29 +12,26 @@ function MoreActionsButton(props) {
                 <Dropdown.Toggle className="more-btn" id="dropdown-basic" tag="button" type="button">
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                    <Dropdown.Item onClick={() => props.handleEditShow()}>Edit</Dropdown.Item>
-                    <Dropdown.Item onClick={() => props.handleDeleteShow()}>Delete</Dropdown.Item>
+                    <Dropdown.Item onClick={() => props.handleEditShow(props.movie)}>Edit</Dropdown.Item>
+                    <Dropdown.Item onClick={() => props.handleDeleteShow(props.movie)}>Delete</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
-            <EditMovieModal movie={props.movie} handleEditClose={() => props.handleEditClose()} showEdit={props.showEdit}></EditMovieModal>
-            <DeleteMovieModal movie={props.movie} handleDeleteClose={() => props.handleDeleteClose()} showDelete={props.showDelete}></DeleteMovieModal>
         </>
     )
 }
+const MapStateToProps = (state) => {
+    return {}
+}
 
-const mapStateToProps = state => {
-    const showEdit = getEditModalVisbility(state);
-    const showDelete = getDeleteModalVisbility(state);
-    return { showEdit, showDelete }
-};
-
-const mapDispatchToProps = (dispatch) => {
+const MapDispatchToProps = (dispatch) => {
     return {
-        handleEditClose: () => dispatch(ViewEditModal(false)),
-        handleEditShow: () => dispatch(ViewEditModal(true)),
-        handleDeleteClose: () => dispatch(ViewDeleteModal(false)),
-        handleDeleteShow: () => dispatch(ViewDeleteModal(true))
+        handleEditShow: (movie) => {
+            dispatch(SetSelectedMovie(movie)); dispatch(ViewEditModal(true))
+        },
+        handleDeleteShow: (movie) => {
+            dispatch(SetSelectedMovie(movie)); dispatch(ViewDeleteModal(true))
+        },
     };
-};
+}
+export default connect(MapStateToProps, MapDispatchToProps)(MoreActionsButton);
 
-export default connect(mapStateToProps, mapDispatchToProps)(MoreActionsButton);
