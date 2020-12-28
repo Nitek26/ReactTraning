@@ -5,6 +5,7 @@ import './AddMovie.css'
 import './../../../data/MovieGenres.js';
 import genres from './../../../data/MovieGenres.js';
 import { ViewAddMovieModal, AddMovieFormChanged } from '../../../store/actions.js'
+import { AddMovieAsync } from '../../../store/asyncActions.js'
 function AddMovie(props) {
 
     const handleInputChange = (event) => {
@@ -23,22 +24,22 @@ function AddMovie(props) {
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
-                        <Form.Group name="title">
+                        <Form.Group >
                             <Form.Label>Title</Form.Label>
-                            <Form.Control placeholder="Title" value={props.title} onChange={(e) => handleInputChange(e)} />
+                            <Form.Control name="title" placeholder="Title" value={props.title} onChange={(e) => handleInputChange(e)} />
                         </Form.Group>
-                        <Form.Group name="releaseDate">
+                        <Form.Group >
                             <Form.Label>Release Date</Form.Label>
-                            <Form.Control placeholder="Select Date" type="date" value={props.releaseDate} onChange={(e) => handleInputChange(e)} />
+                            <Form.Control name="release_date" placeholder="Select Date" type="date" value={props.release_date} onChange={(e) => handleInputChange(e)} />
                         </Form.Group>
-                        <Form.Group name="url">
+                        <Form.Group >
                             <Form.Label>Movie URL</Form.Label>
-                            <Form.Control placeholder="Movie URL here" value={props.url} onChange={(e) => handleInputChange(e)} />
+                            <Form.Control name="poster_path" placeholder="Movie URL here" value={props.poster_path} onChange={(e) => handleInputChange(e)} />
                         </Form.Group>
-                        <Form.Group name="genre">
+                        <Form.Group >
                             <Form.Label>Genre</Form.Label>
                             <span className="wrap">
-                                <Form.Control as="select" value={props.genre} onChange={(e) => handleInputChange(e)}>
+                                <Form.Control name="genres" as="select" value={props.genres} onChange={(e) => handleInputChange(e)}>
                                     <option default>Select Genre</option>
                                     <option>{genres.DOCUMENTARY}</option>
                                     <option>{genres.COMEDY}</option>
@@ -48,19 +49,19 @@ function AddMovie(props) {
                                 </Form.Control>
                             </span>
                         </Form.Group>
-                        <Form.Group name="overview">
+                        <Form.Group >
                             <Form.Label>Overview</Form.Label>
-                            <Form.Control placeholder="Overview here" value={props.overview} onChange={(e) => handleInputChange(e)} />
+                            <Form.Control name="overview" placeholder="Overview here" value={props.overview} onChange={(e) => handleInputChange(e)} />
                         </Form.Group>
-                        <Form.Group name="runtime">
+                        <Form.Group >
                             <Form.Label>Runtime</Form.Label>
-                            <Form.Control placeholder="Runtime here" value={props.runtime} onChange={(e) => handleInputChange(e)} />
+                            <Form.Control name="runtime" placeholder="Runtime here" type="number" value={props.runtime} onChange={(e) => handleInputChange(e)} />
                         </Form.Group>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button className="pink-empty-btn" onClick={props.handleClose}>RESET</Button>
-                    <Button className="pink-full-btn" onClick={props.handleClose}>SUBMIT</Button>
+                    <Button className="pink-full-btn" onClick={() => props.addMovieAsync(props.newMovie)}>SUBMIT</Button>
                 </Modal.Footer>
             </Modal>
         </>
@@ -75,7 +76,8 @@ const MapStateToProps = (state) => {
         url: state.moviesReducer.newMovie.url,
         genre: state.moviesReducer.newMovie.genre,
         overview: state.moviesReducer.newMovie.overview,
-        runtime: state.moviesReducer.newMovie.runtime
+        runtime: state.moviesReducer.newMovie.runtime,
+        newMovie: state.moviesReducer.newMovie
     }
 }
 
@@ -83,7 +85,8 @@ const MapDispatchToProps = (dispatch) => {
     return {
         handleShow: () => dispatch(ViewAddMovieModal(true)),
         handleClose: () => dispatch(ViewAddMovieModal(false)),
-        hanldeAddMovieFormChange: (value, inputName) => dispatch(AddMovieFormChanged(value, inputName))
+        hanldeAddMovieFormChange: (value, inputName) => dispatch(AddMovieFormChanged(value, inputName)),
+        addMovieAsync: (movie) => dispatch(AddMovieAsync(movie))
     }
 }
 

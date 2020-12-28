@@ -14,12 +14,17 @@ const initialState = {
         genreFilter: genres.ALL,
         orderByVal: movieSortProps.RELEASE_DATE,
         newMovie: {
-            formTitle: "",
-            formReleaseDate: "",
-            formUrl: "",
-            formGenre: "",
-            formOverview: "",
-            formRuntime: ""
+            title: "",
+            tagline: "some tag line",
+            vote_average: 0,
+            vote_count: 0,
+            release_date: new Date(),
+            poster_path: "",
+            overview: "",
+            budget: 0,
+            revenue: 0,
+            genres: [],
+            runtime: 0
         },
         selectedMovie: null,
         isHeader: false
