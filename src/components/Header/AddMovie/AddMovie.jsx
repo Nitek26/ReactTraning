@@ -8,8 +8,14 @@ import { ViewAddMovieModal, AddMovieFormChanged } from '../../../store/actions.j
 import { AddMovieAsync } from '../../../store/asyncActions.js'
 function AddMovie(props) {
 
-    const handleInputChange = (event) => {
-        props.hanldeAddMovieFormChange(event.target.value, event.target.name);
+    const handleInputChange = (e) => {
+        let value = (e.target.type === 'number') ? parseInt(e.target.value) : e.target.value
+        props.hanldeAddMovieFormChange(value, e.target.name);
+    }
+
+    const handleSelectChange = (e) => {
+        let value = Array.from(e.target.selectedOptions, option => option.value);
+        props.hanldeAddMovieFormChange(value, e.target.name);
     }
 
     return (
@@ -39,8 +45,7 @@ function AddMovie(props) {
                         <Form.Group >
                             <Form.Label>Genre</Form.Label>
                             <span className="wrap">
-                                <Form.Control name="genres" as="select" value={props.genres} onChange={(e) => handleInputChange(e)}>
-                                    <option default>Select Genre</option>
+                                <Form.Control multiple name="genres" as="select" value={props.genres} onChange={(e) => handleSelectChange(e)}>
                                     <option>{genres.DOCUMENTARY}</option>
                                     <option>{genres.COMEDY}</option>
                                     <option>{genres.HORROR}</option>
@@ -86,7 +91,7 @@ const MapDispatchToProps = (dispatch) => {
         handleShow: () => dispatch(ViewAddMovieModal(true)),
         handleClose: () => dispatch(ViewAddMovieModal(false)),
         hanldeAddMovieFormChange: (value, inputName) => dispatch(AddMovieFormChanged(value, inputName)),
-        addMovieAsync: (movie) => dispatch(AddMovieAsync(movie))
+        addMovieAsync: (movie) => { dispatch(AddMovieAsync(movie)); dispatch(ViewAddMovieModal(false)) }
     }
 }
 

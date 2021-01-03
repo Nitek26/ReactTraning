@@ -66,10 +66,11 @@ const moviesReducer = (state = {}, action) => {
         }
         case (ACTIONS.ADD_MOVIE): {
             let movie = action.payload.movie;
+            let newList = state.movies.concat(movie);
             return {
                 ...state,
-                movies: state.movies.push(movie),
-                fetchedMovies: state.movies.push(movie),
+                movies: newList,
+                fetchedMovies: newList,
             }
         }
         case (ACTIONS.EDIT_MOVIE): {

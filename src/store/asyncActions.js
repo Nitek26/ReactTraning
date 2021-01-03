@@ -50,7 +50,7 @@ export const AddMovieAsync = (movie) => async (dispatch) => {
     axios.post(url, movie)
         .then(response => {
             console.log('AddMovie response: ' + response.data);
-            dispatch(AddMovie(movie));
+            dispatch(AddMovie(response.data));
         })
         .catch(error => {
             console.log('AddMovie API error: ' + error.message);
